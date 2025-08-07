@@ -1,4 +1,5 @@
 package ufc;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Combattant {
@@ -8,6 +9,9 @@ public class Combattant {
     private String nomCombattant;
     private double poids;
     private List<String> titres;
+    private int victoires;
+    private int defaites;
+    private int egalites;
 
     public Combattant(String id, String nom, String prenom, String nomCombattant, double poids, List<String> titres) {
         this.id = id;
@@ -15,7 +19,26 @@ public class Combattant {
         this.prenom = prenom;
         this.nomCombattant = nomCombattant;
         this.poids = poids;
-        this.titres = titres;
+        this.titres = titres != null ? titres : new ArrayList<>();
+        this.victoires = 0;
+        this.defaites = 0;
+        this.egalites = 0;
+    }
+
+    public void enregistrerVictoire() {
+        victoires++;
+    }
+
+    public void enregistrerDefaite() {
+        defaites++;
+    }
+
+    public void enregistrerEgalite() {
+        egalites++;
+    }
+
+    public void ajouterTitre(String titre) {
+        titres.add(titre);
     }
 
     public String getId() {
@@ -41,15 +64,8 @@ public class Combattant {
     public List<String> getTitres() {
         return titres;
     }
-    @Override
-    public String toString() {
-        return "Combattant{" +
-                "id='" + id + '\'' +
-                ", nom='" + nom + '\'' +
-                ", prenom='" + prenom + '\'' +
-                ", nomCombattant='" + nomCombattant + '\'' +
-                ", poids=" + poids +
-                ", titres=" + titres +
-                '}';
+
+    public int getVictoires() {
+        return victoires;
     }
 }

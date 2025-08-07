@@ -40,13 +40,6 @@ public class Ligue_de_Combats {
         return null;
     }
 
-    public Match trouverMatchParId(String id) {
-        for (Match m : matchs) {
-            if (m.getId().equals(id)) return m;
-        }
-        return null;
-    }
-
     @Override
     public String toString() {
         return "Ligue{" +
